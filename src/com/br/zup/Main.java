@@ -15,15 +15,25 @@ public class Main {
     public static void main(String[] args) {
     Map<String, List<String>> listaContatos = new HashMap<>();
 
-        System.out.println("Digite um nome para cadastrar");
-        String nome = createScanner().nextLine();
-        System.out.println("Digite o email do contato");
-        String email = createScanner().nextLine();
-        System.out.println("Digite o telefone do contato");
-        String telefone = createScanner().nextLine();
-        listaContatos.put(email, Arrays.asList(nome, email, telefone));
-        System.out.println("Usuário cadastrado! \n Nome: " +nome+" \nEmail: "+ email + "\nTelefone: "+ telefone);
-        System.out.println(listaContatos);
+    boolean continuar = true;
+
+        while(continuar){
+            System.out.println("Digite um nome para cadastrar");
+            String nome = createScanner().nextLine();
+            System.out.println("Digite o email do contato");
+            String email = createScanner().nextLine();
+            System.out.println("Digite o telefone do contato");
+            String telefone = createScanner().nextLine();
+            listaContatos.put(email, Arrays.asList(nome, email, telefone));
+            System.out.println("Usuário cadastrado! \n Nome: " +nome+" \nEmail: "+ email + "\nTelefone: "+ telefone);
+            System.out.println(listaContatos);
+            System.out.println("Deseja cadastrar mais um contato? Digite sim ou sair para finalizar");
+            String resposta = createScanner().nextLine();
+            if(resposta.equalsIgnoreCase("sair")){
+                continuar = false;
+            }
+        }
+
 
     }
 }
